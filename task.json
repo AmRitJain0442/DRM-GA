@@ -1,0 +1,126 @@
+{
+  "project_metadata": {
+    "title": "DRM Project: Option Pricing & Portfolio Construction",
+    "semester": "First Semester 2025-2026",
+    "weightage": "20%",
+    "team_structure": "Group of 5 students",
+    "company_selection": "One unique company from Nifty 50 index",
+    "technology_stack_options": ["Excel (.xlsx/.xlsm)", "Python (Jupyter Notebook/.py)"]
+  },
+  "phase_1_data_setup": {
+    "description": "Common data collection required for all groups before starting specific tasks.",
+    "deliverable_code": "DEL_001_DATA_PREP",
+    "requirements": [
+      {
+        [cite_start]"step": "Download daily closing price data (Last 2 Years) [cite: 24]"
+      },
+      {
+        [cite_start]"step": "Calculate daily log returns [cite: 25]"
+      },
+      {
+        [cite_start]"step": "Calculate annualized volatility using formula: Std Dev of log returns * sqrt(252) [cite: 26, 27]"
+      }
+    ]
+  },
+  "phase_2_mandatory_task": {
+    "task_id": "TASK_A",
+    "name": "Synthetic Option Portfolio",
+    [cite_start]"status": "Mandatory [cite: 20]",
+    "description": "There are three variations of Task A mentioned in the document. Typically, the 'Objective Version' (Page 3) is the detailed expansion of the basic task (Page 2), while the 'Alternate' (Page 4) is a different path entirely.",
+    "variants": [
+      {
+        "variant_id": "VAR_A1_BASIC",
+        "source_page": "Page 2",
+        [cite_start]"objective": "Construct synthetic long call (Stock + Put) and compare with actual Call[cite: 30].",
+        "parameters": {
+          [cite_start]"horizon": "Last 3 months [cite: 34]",
+          [cite_start]"option_type": "ATM Call (Expiry = 1 month) [cite: 32]"
+        },
+        "deliverable_code": "DEL_002_SYNTHETIC_BASIC",
+        "outputs_required": [
+          [cite_start]"Cost & Payoff Comparison Table [cite: 35]",
+          [cite_start]"Discrepancy Explanation (volatility/mispricing) [cite: 36]"
+        ]
+      },
+      {
+        "variant_id": "VAR_A2_HISTORICAL_ARBITRAGE",
+        "source_page": "Page 3",
+        [cite_start]"objective": "Simulate arbitrage opportunities over 2 years daily[cite: 65].",
+        "parameters": {
+          [cite_start]"horizon": "2 years daily data [cite: 73]",
+          "strategies": ["Actual Call", "Synthetic Call (Long Stock + Long Put)"]
+        },
+        "deliverable_code": "DEL_003_ARBITRAGE_SIM",
+        "outputs_required": [
+          [cite_start]"Performance Comparison Table (Winner X/500, Avg Return, Max Profit/Loss) [cite: 85]",
+          [cite_start]"Best/Worst Case Analysis Dates [cite: 86]",
+          [cite_start]"Cost Efficiency & ROC Analysis [cite: 90, 92]"
+        ]
+      },
+      {
+        "variant_id": "VAR_A3_STRATEGY_BACKTEST",
+        "source_page": "Page 4 (Alternate)",
+        [cite_start]"objective": "Compare 3 specific option strategies over 2 years[cite: 95].",
+        "strategies": [
+          [cite_start]"Covered Call (Long Stock + Short OTM Call) [cite: 97]",
+          [cite_start]"Protective Put (Long Stock + Long ATM Put) [cite: 98]",
+          [cite_start]"Long Straddle (Long ATM Call + Long ATM Put) [cite: 99]"
+        ],
+        "parameters": {
+          [cite_start]"investment": "100,000 per strategy [cite: 101]",
+          [cite_start]"rebalancing": "Monthly [cite: 102]"
+        },
+        "deliverable_code": "DEL_004_STRATEGY_BACKTEST",
+        "outputs_required": [
+          [cite_start]"Monthly Log Table [cite: 112]",
+          [cite_start]"Cumulative Returns Chart [cite: 114]",
+          [cite_start]"Drawdown Comparison Graph [cite: 115]",
+          [cite_start]"Market Regime Analysis (Bull/Bear/Sideways) [cite: 117]"
+        ]
+      }
+    ]
+  },
+  "phase_3_elective_task": {
+    [cite_start]"description": "Choose ONE task from the list below (Task B OR Task C)[cite: 21].",
+    "options": [
+      {
+        "task_id": "TASK_B",
+        "name": "Black-Scholes-Merton (BSM) Model",
+        [cite_start]"objective": "Price European call and put options using BSM formula[cite: 38, 39].",
+        "deliverable_code": "DEL_005_BSM_MODEL",
+        [cite_start]"inputs": ["Stock Price (S)", "Strike Price (K)", "Time (T)", "Risk-Free Rate (r)", "Volatility (σ) [cite: 40]"],
+        "outputs_required": [
+          [cite_start]"Call Premium Calculation [cite: 41]",
+          [cite_start]"Put Premium Calculation [cite: 41]",
+          [cite_start]"Plot: Delta vs. Stock Price [cite: 43]",
+          [cite_start]"Plot:  Vega vs. Volatility [cite: 44]"
+        ]
+      },
+      {
+        "task_id": "TASK_C",
+        "name": "Binomial Option Pricing Model",
+        [cite_start]"objective": "Price European options using a multi-step Binomial Tree[cite: 46, 47].",
+        "deliverable_code": "DEL_006_BINOMIAL_MODEL",
+        [cite_start]"inputs": ["S", "K", "T", "r", "σ", "Steps = 250 [cite: 48]"],
+        "outputs_required": [
+          [cite_start]"Call Premium Calculation [cite: 49]",
+          [cite_start]"Put Premium Calculation [cite: 49]",
+          [cite_start]"Convergence Analysis (Compare results vs BSM model) [cite: 50]"
+        ]
+      }
+    ]
+  },
+  "final_submission_package": {
+    [cite_start]"format": "Single ZIP file [cite: 56]",
+    "contents": [
+      {
+        "code": "SUB_001_SLIDES",
+        [cite_start]"description": "Presentation Slides (2 pages max) covering concept, results, and analysis [cite: 57, 58]"
+      },
+      {
+        "code": "SUB_002_MODEL",
+        [cite_start]"description": "Working Model (Excel or Python file) [cite: 60]"
+      }
+    ]
+  }
+}

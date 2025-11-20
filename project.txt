@@ -1,0 +1,155 @@
+Here is the text extracted from the document, maintaining the original structure and content:
+
+### **Birla Institute of Technology and Science, Pilani**
+[cite_start]**First Semester: 2025-2026** [cite: 1]
+
+[cite_start]**DRM Project: Option Pricing & Portfolio Construction (20% Weightage)** [cite: 2]
+
+---
+
+### [cite_start]**Project Guidelines** [cite: 3]
+
+#### **1. [cite_start]Project Overview** [cite: 4]
+[cite_start]In this project, your group will be assigned a company from the Nifty 50 index[cite: 5]. [cite_start]Your mission has two key components[cite: 6]:
+
+[cite_start]**Portfolio Construction & Analysis** [cite: 7]
+* [cite_start]Engineer a synthetic version of an option using the underlying stock and other options[cite: 8].
+
+[cite_start]**Pricing Model Implementation** [cite: 9]
+* [cite_start]Build a functional financial model to price European options using fundamental pricing methodologies[cite: 11, 12].
+
+[cite_start]This project is designed to provide hands-on experience with data handling, financial modelling, and applying theoretical concepts in practice[cite: 13].
+
+#### **2. [cite_start]Team & Company Allocation** [cite: 14]
+* [cite_start]Groups of five students will be formed[cite: 15].
+* [cite_start]Each group will be selecting one unique company from the Nifty 50 index[cite: 16].
+
+[cite_start]**Each group will complete the following:** [cite: 17]
+* [cite_start]**Task A:** Synthetic Option Portfolio (mandatory)[cite: 20].
+* [cite_start]**One additional task** from Task B (BSM Model) or Task C (Binomial Model)[cite: 21].
+
+#### **3. [cite_start]Detailed Task Description** [cite: 22]
+[cite_start]**Data Collection (Common to All Groups)** [cite: 23]
+* [cite_start]Download the daily closing price data for your assigned company (last 2 years)[cite: 24].
+* [cite_start]Calculate daily log returns[cite: 25].
+* Calculate annualized volatility: $\sigma_{annual} = \text{Std. [cite_start]Dev. of log returns} \times \sqrt{252}$[cite: 26, 27].
+
+---
+
+### [cite_start]**Task A: Synthetic Option Portfolio** [cite: 28]
+
+**Objective:**
+[cite_start]Construct a synthetic long call portfolio using Put-Call Parity and compare it with the actual call option[cite: 30].
+
+[cite_start]**Strategy:** Long Stock + Long Put (same strike & expiry as the call)[cite: 31].
+
+**Steps:**
+1.  [cite_start]Select an ATM call option (strike = current stock price, expiry = 1 month)[cite: 32].
+2.  [cite_start]Build a synthetic call using stock + put[cite: 33].
+3.  [cite_start]Track performance over the last 3 months[cite: 34].
+4.  [cite_start]Compare the cost & payoff of a synthetic vs. an actual call[cite: 35].
+5.  [cite_start]Explain discrepancies (e.g., volatility, mispricing)[cite: 36].
+
+### [cite_start]**Task B: Black-Scholes-Merton (BSM) Model** [cite: 37]
+
+**Objective:**
+[cite_start]Price European call and put options using the BSM formula[cite: 39].
+
+[cite_start]**User Inputs:** Stock Price ($S$), Strike Price ($K$), Time to Expiry ($T$), Risk-Free Rate ($r$), Volatility ($\sigma$)[cite: 40].
+
+[cite_start]**Outputs:** Call Premium, Put Premium[cite: 41].
+
+[cite_start]**Advanced Analysis:** [cite: 42]
+* [cite_start]Plot Delta vs. Stock Price ($S$)[cite: 43].
+* [cite_start]Plot Vega vs. Volatility ($\sigma$)[cite: 44].
+
+### [cite_start]**Task C: Binomial Option Pricing Model** [cite: 45]
+
+**Objective:**
+[cite_start]Price European call and put options using a multi-step Binomial Tree[cite: 47].
+
+[cite_start]**User Inputs:** $S, K, T, r, \sigma$, number of steps (250)[cite: 48].
+
+[cite_start]**Outputs:** Call Premium, Put Premium[cite: 49].
+
+[cite_start]**Analysis:** Compare the results with the BSM model to assess convergence[cite: 50].
+
+---
+
+#### **4. [cite_start]Technology Stack** [cite: 51]
+[cite_start]Choose one implementation[cite: 52]:
+* [cite_start]**Excel:** Well-structured and formatted spreadsheet[cite: 53].
+* [cite_start]**Python:** Jupyter Notebook/script with clear comments[cite: 54].
+
+#### **5. [cite_start]Deliverables** [cite: 55]
+[cite_start]Submit a single ZIP file containing[cite: 56]:
+1.  [cite_start]**Presentation Slides (2 pages):** Conceptual overview, results, analysis (Excluding cover & end slide)[cite: 57, 58, 59].
+2.  [cite_start]**Working Model:** Excel (.xlsx or .xlsm) or Python (.ipynb or .py file)[cite: 60, 61, 62].
+
+---
+
+### [cite_start]**Task A (Objective Version): Historical Arbitrage Simulation** [cite: 63]
+
+**Objective:**
+[cite_start]Simulate arbitrage opportunities by comparing synthetic vs. actual call option returns over the last 2 years[cite: 65].
+
+[cite_start]**Steps:** [cite: 66]
+* [cite_start]**Setup Fixed Parameters:** [cite: 67]
+    * [cite_start]Time to Expiry: 1 month (30 days)[cite: 71].
+    * [cite_start]Strike Price: At-the-Money (ATM)[cite: 72].
+    * [cite_start]Horizon: 2 years of daily data[cite: 73].
+* [cite_start]**Daily Simulation:** [cite: 74]
+    * [cite_start]For each day, identify ATM call & put with 30-day expiry[cite: 75, 76].
+    * [cite_start]Compare Strategy A (Buy actual call) vs. Strategy B (Synthetic Call: Long Stock + Long Put)[cite: 78, 79, 80].
+    * [cite_start]Record P&L until expiry[cite: 81].
+
+[cite_start]**Analysis Points:** [cite: 82]
+* [cite_start]**Performance Comparison Table:** [cite: 84]
+
+| Metric | Actual Call | Synthetic Call | Winner |
+| :--- | :--- | :--- | :--- |
+| Total Trades Profitable | X/500 | Y/500 | |
+| Avg. Return per Trade | Z | W | |
+| Max Single Trade Profit | P | Q | |
+| Max Single Trade Loss | R | S | |
+
+* [cite_start]**Best/Worst Case Analysis:** Dates with maximum profit/loss for synthetic vs. actual call, linked to volatility & stock movement[cite: 86, 87, 89].
+* [cite_start]**Cost Efficiency:** Compare capital required and Return on Capital (ROC)[cite: 90, 91, 92].
+
+---
+
+### [cite_start]**Task A (Alternate Version): Options Strategy Performance Back Test** [cite: 93]
+
+**Objective:**
+[cite_start]Compare 3 option strategies systematically over 2 years[cite: 95].
+
+[cite_start]**Strategies:** [cite: 96]
+1.  [cite_start]**Covered Call:** Long Stock + Short OTM Call[cite: 97].
+2.  [cite_start]**Protective Put:** Long Stock + Long ATM Put[cite: 98].
+3.  [cite_start]**Long Straddle:** Long ATM Call + Long ATM Put[cite: 99].
+
+[cite_start]**Parameters:** [cite: 100]
+* [cite_start]**Investment:** 100,000 per strategy[cite: 101].
+* [cite_start]**Rebalancing:** Monthly (30 days)[cite: 102].
+* [cite_start]**Option Choice:** ATM (puts), 5% OTM (calls)[cite: 103].
+* [cite_start]**Horizon:** 2 years[cite: 104].
+
+[cite_start]**Metrics:** [cite: 105]
+* [cite_start]Total Return[cite: 106].
+* [cite_start]Win Rate (%)[cite: 107].
+* [cite_start]Max Drawdown[cite: 108].
+* [cite_start]Best Month/Worst Month[cite: 109].
+* [cite_start]Volatility of returns[cite: 110].
+
+[cite_start]**Example Monthly Log:** [cite: 111]
+
+| Month | Covered Call | Protective Put | Long Straddle | Nifty Return |
+| :--- | :--- | :--- | :--- | :--- |
+| Jan-22 | +3.2% | -2.1% | +8.5% | +4.1% |
+| Feb-22 | +1.8% | +0.5% | -4.2% | -1.2% |
+
+[cite_start]**Analysis Deliverables:** [cite: 113]
+* [cite_start]Cumulative Returns Chart[cite: 114].
+* [cite_start]Drawdown Comparison Graph[cite: 115].
+* [cite_start]Histograms of Monthly Returns[cite: 116].
+* [cite_start]Market Regime Analysis: Bull, Bear, Sideways[cite: 117].
