@@ -10,7 +10,7 @@
 
 ---
 
-## 📋 Executive Summary
+## Executive Summary
 
 This comprehensive project explores derivatives pricing theory and portfolio construction strategies using real market data from **Larsen & Toubro (L&T)**, one of India's largest engineering and construction conglomerates. The analysis integrates quantitative finance methodologies with practical implementation in Python, covering:
 
@@ -19,7 +19,7 @@ This comprehensive project explores derivatives pricing theory and portfolio con
 3. **Black-Scholes-Merton Model** - Closed-form solutions with Greeks analysis
 4. **Binomial Tree Model** - Discrete-time pricing with convergence validation
 
-### 🎯 Key Findings
+### Key Findings
 
 | Metric | Value | Interpretation |
 |--------|-------|----------------|
@@ -35,7 +35,7 @@ This comprehensive project explores derivatives pricing theory and portfolio con
 
 ---
 
-## 📚 Theoretical Framework
+## Theoretical Framework
 
 ### Put-Call Parity Theorem
 
@@ -91,7 +91,7 @@ Discrete-time approximation using Cox-Ross-Rubinstein methodology:
 
 ---
 
-## 🔬 Phase 1: Data Analysis & Volatility Metrics
+## Phase 1: Data Analysis & Volatility Metrics
 
 ### Methodology
 
@@ -169,7 +169,7 @@ Distribution Characteristics:
 
 ---
 
-## 🔄 Phase 2: Synthetic Option Portfolio Construction
+## Phase 2: Synthetic Option Portfolio Construction
 
 ### Strategy Implementation
 
@@ -242,7 +242,7 @@ As stock price increased +0.39%:
 
 ---
 
-## 📈 Phase 3 Task B: Black-Scholes-Merton Model & Greeks
+## Phase 3 Task B: Black-Scholes-Merton Model & Greeks
 
 ### Implementation Parameters
 
@@ -338,7 +338,7 @@ Vega Profile:
 
 ---
 
-## 🌳 Phase 3 Task C: Binomial Tree Model
+## Phase 3 Task C: Binomial Tree Model
 
 ### Implementation
 
@@ -439,7 +439,7 @@ Target Accuracy (₹0.01):      ✓ Achieved at N=250
 
 ---
 
-## 🎯 Key Insights & Conclusions
+## Key Insights & Conclusions
 
 ### 1. Market Analysis
 
@@ -499,7 +499,7 @@ Target Accuracy (₹0.01):      ✓ Achieved at N=250
 
 ---
 
-## 💻 Technical Implementation
+## Technical Implementation
 
 ### Dependencies
 
@@ -534,7 +534,7 @@ jupyter notebook DRM_Project.ipynb
 
 ---
 
-## 📊 Visualizations Generated
+## Visualizations Generated
 
 ### 1. Stock Price Chart (2 Years)
 - Historical closing prices with trend lines
@@ -583,7 +583,7 @@ jupyter notebook DRM_Project.ipynb
 
 ---
 
-## 🔍 Limitations & Assumptions
+## Limitations & Assumptions
 
 ### Model Assumptions
 
@@ -616,7 +616,7 @@ jupyter notebook DRM_Project.ipynb
 
 ---
 
-## 📖 References
+## References
 
 ### Academic Papers
 
@@ -640,7 +640,7 @@ jupyter notebook DRM_Project.ipynb
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 | Name | Roll Number | Contribution |
 |------|-------------|--------------|
@@ -652,26 +652,26 @@ jupyter notebook DRM_Project.ipynb
 
 ---
 
-## 📅 Project Timeline
+## Project Timeline
 
 | Phase | Duration | Status |
 |-------|----------|--------|
-| Proposal & Company Selection | Week 1 | ✅ Completed |
-| Data Collection & Cleaning | Week 2 | ✅ Completed |
-| Phase 1: Data Analysis | Week 3-4 | ✅ Completed |
-| Phase 2: Synthetic Portfolio | Week 5-6 | ✅ Completed |
-| Phase 3: Option Pricing Models | Week 7-9 | ✅ Completed |
-| Documentation & Report | Week 10 | ✅ Completed |
+| Proposal & Company Selection | Week 1 | Completed |
+| Data Collection & Cleaning | Week 2 | Completed |
+| Phase 1: Data Analysis | Week 3-4 | Completed |
+| Phase 2: Synthetic Portfolio | Week 5-6 | Completed |
+| Phase 3: Option Pricing Models | Week 7-9 | Completed |
+| Documentation & Report | Week 10 | Completed |
 
 ---
 
-## 📝 License
+## License
 
 This project is submitted as part of academic coursework for educational purposes only. All data sources are properly attributed. Not intended for commercial use.
 
 ---
 
-## 📧 Contact
+## Contact
 
 For questions or clarifications regarding this project:
 
@@ -681,7 +681,7 @@ For questions or clarifications regarding this project:
 
 ---
 
-## 🏆 Acknowledgments
+## Acknowledgments
 
 We would like to thank:
 - **Course Instructor** for guidance and theoretical foundations
