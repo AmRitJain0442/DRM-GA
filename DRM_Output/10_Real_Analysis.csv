@@ -1,20 +1,20 @@
 Metric,Value
-Current Stock Price,₹4081.30
-Strike Price,₹4100
-Days to Expiry,31
-Real Call Price,₹79.00
-Real Put Price,₹70.90
-BSM Call Price,₹122.47
-BSM Put Price,₹120.33
-Call Price Diff (Real-BSM),₹-43.47 (-35.50%)
-Put Price Diff (Real-BSM),₹-49.43 (-41.08%)
-Synthetic Cost (Real),₹4152.20
-Real Call Cost,₹79.00
-Capital Efficiency Ratio,52.56x
-Put-Call Parity Error,₹5.96 (0.146%)
-Historical Volatility,25.60%
-Implied Vol (Call),16.43%
-Implied Vol (Put),14.72%
-Volatility Gap,+9.17%
-Max Payoff Error,₹26.80
-Avg Payoff Error,₹26.80
+Current Stock Price,₹4069.60
+Strike Price,₹4050
+Days to Expiry,30
+Real Call Price,₹108.25
+Real Put Price,₹45.80
+BSM Call Price,₹139.23
+BSM Put Price,₹99.71
+Call Price Diff (Real-BSM),₹-30.98 (-22.25%)
+Put Price Diff (Real-BSM),₹-53.91 (-54.07%)
+Synthetic Cost (Real),₹4115.40
+Real Call Cost,₹108.25
+Capital Efficiency Ratio,38.02x
+Put-Call Parity Error,₹22.93 (0.563%)
+Historical Volatility,25.57%
+Implied Vol (Call),18.80%
+Implied Vol (Put),4.35%
+Volatility Gap,+6.77%
+Max Payoff Error,₹42.85
+Avg Payoff Error,₹42.85

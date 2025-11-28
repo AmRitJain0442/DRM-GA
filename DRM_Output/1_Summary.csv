@@ -1,20 +1,20 @@
 Metric,Value
 Ticker Symbol,LT.NS
-Analysis Date,2025-11-28
+Analysis Date,2025-11-29
 Data Start Date,2023-11-29
-Data End Date,2025-11-27
-Total Trading Days,495
+Data End Date,2025-11-28
+Total Trading Days,496
 Starting Price (INR),3031.43
-Ending Price (INR),4081.30
+Ending Price (INR),4069.60
 Max Price (INR),4081.30
 Min Price (INR),3025.93
-Mean Price (INR),3537.53
-Total Return (%),34.63
-Annualized Return (%),16.35
-Daily Volatility,0.016125
-Annualized Volatility (%),1472.02
+Mean Price (INR),3538.60
+Total Return (%),34.25
+Annualized Return (%),16.14
+Daily Volatility,0.016109
+Annualized Volatility (%),435.49
 Volatility Classification,VERY HIGH
 Risk-Free Rate (%),6.00
-Mean Daily Return,0.000623
-Skewness,-1.1252
-Kurtosis,11.5795
+Mean Daily Return,0.000616
+Skewness,-1.1248
+Kurtosis,11.6040
