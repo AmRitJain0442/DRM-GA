@@ -8,7 +8,7 @@
 **Semester:** First Semester 2025-2026  
 **Weightage:** 20% of Final Grade  
 **Analysis Date:** November 29, 2025  
-**Selected Company:** Larsen & Toubro Limited (LT.NS) - Nifty 50 Index  
+**Selected Company:** Larsen & Toubro Limited (LT.NS) - Nifty 50 Index
 
 ---
 
@@ -34,31 +34,31 @@ This comprehensive project explores **derivatives pricing theory** and **portfol
 
 ### Key Results Summary
 
-| Metric | Value |
-|--------|-------|
-| **Stock Ticker** | LT.NS |
-| **Current Price** | ₹4,069.60 |
-| **Starting Price (2 years ago)** | ₹3,031.43 |
-| **Total Return** | 34.25% |
-| **Annualized Return** | 16.14% |
-| **Annualized Volatility** | 25.40% |
-| **Volatility Classification** | HIGH (25-35%) |
-| **Risk-Free Rate Used** | 6.00% |
+| Metric                           | Value         |
+| -------------------------------- | ------------- |
+| **Stock Ticker**                 | LT.NS         |
+| **Current Price**                | ₹4,069.60     |
+| **Starting Price (2 years ago)** | ₹3,031.43     |
+| **Total Return**                 | 34.25%        |
+| **Annualized Return**            | 16.14%        |
+| **Annualized Volatility**        | 25.40%        |
+| **Volatility Classification**    | HIGH (25-35%) |
+| **Risk-Free Rate Used**          | 6.00%         |
 
 ### Option Pricing Results (ATM, 1-Month Expiry)
 
-| Model | Call Price (₹) | Put Price (₹) |
-|-------|---------------|---------------|
-| **BSM (Theoretical)** | 129.13 | 108.84 |
-| **Binomial (N=250)** | 129.01 | 108.72 |
-| **Difference** | 0.12 (0.09%) | 0.12 (0.11%) |
+| Model                 | Call Price (₹) | Put Price (₹) |
+| --------------------- | -------------- | ------------- |
+| **BSM (Theoretical)** | 129.13         | 108.84        |
+| **Binomial (N=250)**  | 129.01         | 108.72        |
+| **Difference**        | 0.12 (0.09%)   | 0.12 (0.11%)  |
 
 ### Synthetic Portfolio Performance (3-Month Tracking)
 
-| Strategy | Initial Cost (₹) | Final Value (₹) | P&L (₹) | Return (%) |
-|----------|-----------------|-----------------|---------|------------|
-| **Actual Call** | 210.10 | 0.00 | -210.10 | -100.00% |
-| **Synthetic Call** | 3,754.93 | 4,069.60 | +314.67 | +8.38% |
+| Strategy           | Initial Cost (₹) | Final Value (₹) | P&L (₹) | Return (%) |
+| ------------------ | ---------------- | --------------- | ------- | ---------- |
+| **Actual Call**    | 210.10           | 0.00            | -210.10 | -100.00%   |
+| **Synthetic Call** | 3,754.93         | 4,069.60        | +314.67 | +8.38%     |
 
 ---
 
@@ -91,6 +91,7 @@ Logarithmic returns are preferred over simple returns for several reasons:
 $$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)$$
 
 **Advantages:**
+
 - **Additivity:** Log returns are time-additive: $\sum \log(P_t/P_{t-1}) = \log(P_T/P_0)$
 - **Symmetry:** Equal percentage moves up/down have equal log return magnitudes
 - **Normal Distribution:** Better approximation to normality (required for BSM model)
@@ -105,7 +106,7 @@ $$\sigma_{daily} = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(r_i - \bar{r})^2}$$
 **Annualized Volatility:**
 $$\sigma_{annual} = \sigma_{daily} \times \sqrt{252}$$
 
-*Note: 252 is the approximate number of trading days per year*
+_Note: 252 is the approximate number of trading days per year_
 
 ### 3. Put-Call Parity
 
@@ -114,6 +115,7 @@ The fundamental arbitrage-free relationship governing European options:
 $$C + K e^{-rT} = P + S$$
 
 **Where:**
+
 - $C$ = Call option price
 - $P$ = Put option price
 - $S$ = Current stock price
@@ -122,6 +124,7 @@ $$C + K e^{-rT} = P + S$$
 - $T$ = Time to maturity
 
 **Implication:** A synthetic call can be created by combining:
+
 - Long 1 share of stock
 - Long 1 put option (same strike and expiry)
 
@@ -140,6 +143,7 @@ $$d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$$
 $$d_2 = d_1 - \sigma\sqrt{T}$$
 
 **Key Assumptions:**
+
 1. Constant volatility (σ)
 2. Constant risk-free rate (r)
 3. No dividends
@@ -152,13 +156,13 @@ $$d_2 = d_1 - \sigma\sqrt{T}$$
 
 Greeks measure sensitivity of option prices to various factors:
 
-| Greek | Symbol | Measures | Formula |
-|-------|--------|----------|---------|
-| **Delta** | Δ | Price sensitivity to stock | $\Delta_C = N(d_1)$, $\Delta_P = N(d_1) - 1$ |
-| **Gamma** | Γ | Delta sensitivity to stock | $\Gamma = \frac{N'(d_1)}{S\sigma\sqrt{T}}$ |
-| **Theta** | Θ | Time decay | $\Theta = -\frac{S N'(d_1) \sigma}{2\sqrt{T}} - rKe^{-rT}N(d_2)$ |
-| **Vega** | ν | Volatility sensitivity | $\nu = S\sqrt{T} N'(d_1)$ |
-| **Rho** | ρ | Interest rate sensitivity | $\rho = KTe^{-rT}N(d_2)$ |
+| Greek     | Symbol | Measures                   | Formula                                                          |
+| --------- | ------ | -------------------------- | ---------------------------------------------------------------- |
+| **Delta** | Δ      | Price sensitivity to stock | $\Delta_C = N(d_1)$, $\Delta_P = N(d_1) - 1$                     |
+| **Gamma** | Γ      | Delta sensitivity to stock | $\Gamma = \frac{N'(d_1)}{S\sigma\sqrt{T}}$                       |
+| **Theta** | Θ      | Time decay                 | $\Theta = -\frac{S N'(d_1) \sigma}{2\sqrt{T}} - rKe^{-rT}N(d_2)$ |
+| **Vega**  | ν      | Volatility sensitivity     | $\nu = S\sqrt{T} N'(d_1)$                                        |
+| **Rho**   | ρ      | Interest rate sensitivity  | $\rho = KTe^{-rT}N(d_2)$                                         |
 
 ### 6. Binomial Option Pricing Model
 
@@ -187,43 +191,43 @@ As $N \to \infty$, the binomial price converges to the BSM price.
 
 **Source:** Yahoo Finance API via `yfinance` Python library
 
-| Parameter | Value |
-|-----------|-------|
-| **Ticker** | LT.NS |
-| **Period** | 2 Years |
-| **Interval** | Daily |
-| **Data Start** | November 29, 2023 |
-| **Data End** | November 28, 2025 |
-| **Total Trading Days** | 496 |
+| Parameter              | Value             |
+| ---------------------- | ----------------- |
+| **Ticker**             | LT.NS             |
+| **Period**             | 2 Years           |
+| **Interval**           | Daily             |
+| **Data Start**         | November 29, 2023 |
+| **Data End**           | November 28, 2025 |
+| **Total Trading Days** | 496               |
 
 ### Price Statistics
 
-| Metric | Value (₹) |
-|--------|-----------|
-| **Starting Price** | 3,031.43 |
-| **Ending Price** | 4,069.60 |
-| **Maximum Price** | 4,081.30 |
-| **Minimum Price** | 3,025.93 |
-| **Mean Price** | 3,538.60 |
+| Metric             | Value (₹) |
+| ------------------ | --------- |
+| **Starting Price** | 3,031.43  |
+| **Ending Price**   | 4,069.60  |
+| **Maximum Price**  | 4,081.30  |
+| **Minimum Price**  | 3,025.93  |
+| **Mean Price**     | 3,538.60  |
 
 ### Return Statistics
 
-| Metric | Value |
-|--------|-------|
-| **Mean Daily Return** | 0.0616% |
-| **Daily Volatility** | 1.60% |
-| **Annualized Volatility** | 25.40% |
-| **Skewness** | -1.1248 |
-| **Kurtosis** | 11.6040 |
+| Metric                    | Value   |
+| ------------------------- | ------- |
+| **Mean Daily Return**     | 0.0616% |
+| **Daily Volatility**      | 1.60%   |
+| **Annualized Volatility** | 25.40%  |
+| **Skewness**              | -1.1248 |
+| **Kurtosis**              | 11.6040 |
 
 ### Volatility Classification
 
-| Category | Range | LT.NS Status |
-|----------|-------|--------------|
-| Low | < 15% | ✗ |
-| Moderate | 15-25% | ✗ |
-| **High** | **25-35%** | **✓ (25.40%)** |
-| Very High | > 35% | ✗ |
+| Category  | Range      | LT.NS Status   |
+| --------- | ---------- | -------------- |
+| Low       | < 15%      | ✗              |
+| Moderate  | 15-25%     | ✗              |
+| **High**  | **25-35%** | **✓ (25.40%)** |
+| Very High | > 35%      | ✗              |
 
 **Interpretation:** LT.NS exhibits **high volatility**, indicating significant price fluctuations typical of capital-intensive infrastructure companies. This makes option strategies particularly valuable for risk management.
 
@@ -231,7 +235,7 @@ As $N \to \infty$, the binomial price converges to the BSM price.
 
 ![Stock Price History](DRM_Output/1_Stock_Price_History.png)
 
-*Figure 1: LT.NS stock price over 2 years with volatility annotation*
+_Figure 1: LT.NS stock price over 2 years with volatility annotation_
 
 ---
 
@@ -245,39 +249,41 @@ Construct a **synthetic long call** using Put-Call Parity and validate its perfo
 
 **Synthetic Long Call = Long Stock + Long Put**
 
-| Component | Action | Cost (₹) |
-|-----------|--------|----------|
-| Stock | Buy 1 share at S₀ | 3,544.83 |
-| Put Option | Buy 1 ATM Put | 210.10 |
-| **Total Initial Cost** | | **3,754.93** |
+| Component              | Action            | Cost (₹)     |
+| ---------------------- | ----------------- | ------------ |
+| Stock                  | Buy 1 share at S₀ | 3,544.83     |
+| Put Option             | Buy 1 ATM Put     | 210.10       |
+| **Total Initial Cost** |                   | **3,754.93** |
 
 ### Parameters Used
 
-| Parameter | Value |
-|-----------|-------|
-| **Tracking Period** | 63 trading days (3 months) |
-| **Starting Date** | ~September 2025 |
-| **Ending Date** | November 28, 2025 |
-| **Initial Stock Price (S₀)** | ₹3,544.83 |
-| **Strike Price (K)** | ₹3,544.83 (ATM) |
-| **Risk-Free Rate (r)** | 6.00% |
-| **Volatility (σ)** | 25.40% |
-| **Time to Maturity (T)** | 0.25 years |
+| Parameter                    | Value                      |
+| ---------------------------- | -------------------------- |
+| **Tracking Period**          | 63 trading days (3 months) |
+| **Starting Date**            | ~September 2025            |
+| **Ending Date**              | November 28, 2025          |
+| **Initial Stock Price (S₀)** | ₹3,544.83                  |
+| **Strike Price (K)**         | ₹3,544.83 (ATM)            |
+| **Risk-Free Rate (r)**       | 6.00%                      |
+| **Volatility (σ)**           | 25.40%                     |
+| **Time to Maturity (T)**     | 0.25 years                 |
 
 ### Performance Comparison
 
-| Strategy | Initial Cost (₹) | Final Payoff (₹) | P&L (₹) | Return (%) |
-|----------|-----------------|------------------|---------|------------|
-| **Actual Call** | 210.10 | 0.00 | -210.10 | -100.00% |
-| **Synthetic Call** | 3,754.93 | 4,069.60 | +314.67 | +8.38% |
+| Strategy           | Initial Cost (₹) | Final Payoff (₹) | P&L (₹) | Return (%) |
+| ------------------ | ---------------- | ---------------- | ------- | ---------- |
+| **Actual Call**    | 210.10           | 0.00             | -210.10 | -100.00%   |
+| **Synthetic Call** | 3,754.93         | 4,069.60         | +314.67 | +8.38%     |
 
 ### Analysis
 
 **Actual Call Option:**
+
 - Expired **out-of-the-money** (stock price did not exceed strike at expiry)
 - Total loss = 100% of premium paid
 
 **Synthetic Call:**
+
 - Stock appreciated from ₹3,544.83 → ₹4,069.60
 - Put option expired worthless (OTM)
 - Net gain = Stock appreciation - Put premium paid
@@ -294,18 +300,118 @@ The synthetic portfolio tracked the theoretical value (Call + PV(K)) with minima
 
 Dynamic delta hedging was also implemented to demonstrate risk-neutral portfolio construction:
 
-| Metric | Value |
-|--------|-------|
-| **Initial Delta** | 0.5246 |
-| **Average Delta** | 0.5891 |
-| **Rebalancing Frequency** | Daily |
-| **Hedging P&L Source** | Gamma scalping in trending market |
+| Metric                    | Value                             |
+| ------------------------- | --------------------------------- |
+| **Initial Delta**         | 0.5246                            |
+| **Average Delta**         | 0.5891                            |
+| **Rebalancing Frequency** | Daily                             |
+| **Hedging P&L Source**    | Gamma scalping in trending market |
 
 ### Synthetic Portfolio Analysis Chart
 
 ![Synthetic Portfolio Analysis](DRM_Output/2_Synthetic_Portfolio_Analysis.png)
 
-*Figure 2: Synthetic call tracking, parity error, and delta hedging P&L*
+_Figure 2: Synthetic call tracking, parity error, and delta hedging P&L_
+
+---
+
+## Phase 2C: Actual NSE Options vs BSM Theoretical Pricing
+
+### Objective
+
+Compare **actual NSE option prices** with **BSM theoretical prices** over a 3-month period using real market data from the National Stock Exchange.
+
+### Data Sources
+
+| Data Type | Source | Period | Records |
+|-----------|--------|--------|---------|
+| **PUT Options** | `OPTSTK_LT_PE_29-Aug-2025_TO_29-Nov-2025.csv` | 3 months | 5,971 |
+| **CALL Options** | `OPTSTK_LT_CE_29-Aug-2025_TO_29-Nov-2025.csv` | 3 months | 5,937 |
+
+### Methodology
+
+**Rolling Front-Month ATM Options Strategy:**
+- For each trading date, select the nearest expiry with >5 days remaining
+- Find the ATM strike (closest to current stock price)
+- Compare actual market close prices with BSM theoretical prices
+- Calculate pricing errors and validate Put-Call Parity
+
+### Available Expiry Dates
+
+| Expiry Date | Trading Days | Usage in Comparison |
+|-------------|--------------|---------------------|
+| 30-Sep-2025 | 23 days | 20 days |
+| 28-Oct-2025 | 41 days | 18 days |
+| 25-Nov-2025 | 60 days | 15 days |
+| 30-Dec-2025 | 40 days | 6 days |
+| 27-Jan-2026 | 22 days | - |
+| 24-Feb-2026 | 3 days | - |
+
+**Total Comparison Period:** 59 trading days (August 29 - November 28, 2025)
+
+### Pricing Comparison Results
+
+**Parameters Used:**
+- Risk-Free Rate (r): 6.00%
+- Historical Volatility (σ): 25.57%
+
+#### PUT Option Analysis
+
+| Metric | Value |
+|--------|-------|
+| **Average Actual Price** | ₹49.67 |
+| **Average BSM Price** | ₹80.70 |
+| **Average Error** | -₹31.03 (-38.5%) |
+| **Standard Deviation of Error** | ₹9.40 |
+
+#### CALL Option Analysis
+
+| Metric | Value |
+|--------|-------|
+| **Average Actual Price** | ₹63.81 |
+| **Average BSM Price** | ₹92.61 |
+| **Average Error** | -₹28.80 (-31.1%) |
+| **Standard Deviation of Error** | ₹9.43 |
+
+### Put-Call Parity Validation
+
+| Metric | Value |
+|--------|-------|
+| **Average (S+P) - (C+PV(K))** | -₹2.24 |
+| **Standard Deviation** | ₹4.11 |
+| **Status** | ✓ Parity holds well (within ₹20) |
+
+### Key Findings
+
+1. **BSM Overprices Options:** Both PUT and CALL options are systematically overpriced by BSM (30-38%) compared to actual NSE market prices.
+
+2. **Implied vs Historical Volatility:** This discrepancy is primarily due to:
+   - BSM uses **historical volatility** (25.57%)
+   - Market prices reflect **implied volatility** which is typically lower (~15-20% for ATM options)
+   
+3. **Put-Call Parity Holds:** Despite the absolute pricing errors, the relationship between calls and puts (Put-Call Parity) is well-maintained in the market with only ₹2.24 average deviation.
+
+4. **Market Efficiency:** The consistent parity relationship indicates efficient arbitrage activity in the NSE options market.
+
+### Actual vs BSM Comparison Chart
+
+![Actual vs BSM Comparison](DRM_Output/7_Actual_vs_BSM_Comparison.png)
+
+_Figure 2.5: 3-month comparison of actual NSE option prices vs BSM theoretical prices_
+
+**Chart Components:**
+- **Top Left:** PUT Option - Actual NSE vs BSM Theoretical
+- **Top Right:** CALL Option - Actual NSE vs BSM Theoretical  
+- **Bottom Left:** Put-Call Parity: S + P vs C + PV(K)
+- **Bottom Right:** Pricing Error over time (Actual - BSM)
+
+### Implications
+
+| For | Insight |
+|-----|---------|
+| **Traders** | Use implied volatility from market prices rather than historical volatility for more accurate pricing |
+| **Risk Managers** | BSM with historical vol overestimates option values - adjust margins accordingly |
+| **Academics** | Real markets exhibit volatility smile/skew not captured by constant-volatility BSM |
 
 ---
 
@@ -316,6 +422,7 @@ Dynamic delta hedging was also implemented to demonstrate risk-neutral portfolio
 #### Option Pricing Results
 
 **Parameters:**
+
 - Stock Price (S): ₹4,069.60
 - Strike Price (K): ₹4,069.60 (ATM)
 - Time to Maturity (T): 1/12 years (1 month)
@@ -323,33 +430,36 @@ Dynamic delta hedging was also implemented to demonstrate risk-neutral portfolio
 - Volatility (σ): 25.40%
 
 | Option Type | BSM Price (₹) |
-|-------------|---------------|
-| **Call** | 129.13 |
-| **Put** | 108.84 |
+| ----------- | ------------- |
+| **Call**    | 129.13        |
+| **Put**     | 108.84        |
 
 #### ATM Option Greeks
 
-| Greek | Call Value | Put Value | Interpretation |
-|-------|------------|-----------|----------------|
-| **Delta (Δ)** | 0.5246 | -0.4754 | 52.46% stock-equivalent exposure |
-| **Gamma (Γ)** | 0.0034 | 0.0034 | Delta changes 0.34% per ₹1 move |
-| **Theta (Θ)** | -2.87 | -2.20 | Loses ₹2.87/day from time decay |
-| **Vega (ν)** | 4.67 | 4.67 | Gains ₹4.67 per 1% vol increase |
-| **Rho (ρ)** | 1.69 | -1.64 | Gains ₹1.69 per 1% rate increase |
+| Greek         | Call Value | Put Value | Interpretation                   |
+| ------------- | ---------- | --------- | -------------------------------- |
+| **Delta (Δ)** | 0.5246     | -0.4754   | 52.46% stock-equivalent exposure |
+| **Gamma (Γ)** | 0.0034     | 0.0034    | Delta changes 0.34% per ₹1 move  |
+| **Theta (Θ)** | -2.87      | -2.20     | Loses ₹2.87/day from time decay  |
+| **Vega (ν)**  | 4.67       | 4.67      | Gains ₹4.67 per 1% vol increase  |
+| **Rho (ρ)**   | 1.69       | -1.64     | Gains ₹1.69 per 1% rate increase |
 
 #### Greeks Sensitivity Analysis
 
 **Delta vs Stock Price:**
+
 - Call delta approaches 1 as stock rises (deep ITM)
 - Call delta approaches 0 as stock falls (deep OTM)
 - ATM options have delta ≈ 0.5
 
 **Vega vs Volatility:**
+
 - Maximum vega at ATM strikes
 - Vega decreases for deep ITM/OTM options
 - Higher vega = higher sensitivity to volatility changes
 
 **Theta (Time Decay):**
+
 - ATM options have highest theta (fastest decay)
 - Time decay accelerates as expiry approaches
 - Short-term options decay faster than long-term
@@ -358,7 +468,7 @@ Dynamic delta hedging was also implemented to demonstrate risk-neutral portfolio
 
 ![BSM Greeks Analysis](DRM_Output/3_BSM_Greeks_Analysis.png)
 
-*Figure 3: Greeks analysis showing Delta, Gamma, Theta, Vega sensitivities*
+_Figure 3: Greeks analysis showing Delta, Gamma, Theta, Vega sensitivities_
 
 ---
 
@@ -377,28 +487,29 @@ The Cox-Ross-Rubinstein (CRR) binomial model was implemented with:
 #### Binomial Tree Results
 
 | Option Type | Binomial Price (₹) | BSM Price (₹) | Error (₹) |
-|-------------|-------------------|---------------|-----------|
-| **Call** | 129.01 | 129.13 | 0.12 |
-| **Put** | 108.72 | 108.84 | 0.12 |
+| ----------- | ------------------ | ------------- | --------- |
+| **Call**    | 129.01             | 129.13        | 0.12      |
+| **Put**     | 108.72             | 108.84        | 0.12      |
 
 #### Convergence Analysis
 
 The binomial model converges to BSM as the number of steps increases:
 
 | Steps (N) | Binomial Price (₹) | BSM Price (₹) | Error (₹) | Computation Time (s) |
-|-----------|-------------------|---------------|-----------|---------------------|
-| 10 | 126.20 | 129.13 | 2.93 | 0.000 |
-| 25 | 130.32 | 129.13 | 1.18 | 0.001 |
-| 50 | 128.54 | 129.13 | 0.59 | 0.001 |
-| 100 | 128.84 | 129.13 | 0.30 | 0.011 |
-| 150 | 128.93 | 129.13 | 0.20 | 0.021 |
-| 200 | 128.98 | 129.13 | 0.15 | 0.039 |
-| **250** | **129.01** | **129.13** | **0.12** | **0.073** |
-| 300 | 129.03 | 129.13 | 0.10 | 0.102 |
-| 350 | 129.05 | 129.13 | 0.08 | 0.133 |
-| 400 | 129.06 | 129.13 | 0.07 | 0.150 |
+| --------- | ------------------ | ------------- | --------- | -------------------- |
+| 10        | 126.20             | 129.13        | 2.93      | 0.000                |
+| 25        | 130.32             | 129.13        | 1.18      | 0.001                |
+| 50        | 128.54             | 129.13        | 0.59      | 0.001                |
+| 100       | 128.84             | 129.13        | 0.30      | 0.011                |
+| 150       | 128.93             | 129.13        | 0.20      | 0.021                |
+| 200       | 128.98             | 129.13        | 0.15      | 0.039                |
+| **250**   | **129.01**         | **129.13**    | **0.12**  | **0.073**            |
+| 300       | 129.03             | 129.13        | 0.10      | 0.102                |
+| 350       | 129.05             | 129.13        | 0.08      | 0.133                |
+| 400       | 129.06             | 129.13        | 0.07      | 0.150                |
 
 **Key Observations:**
+
 1. Error decreases approximately as O(1/N)
 2. N=250 achieves < 0.1% error vs BSM
 3. Computation time increases as O(N²)
@@ -408,7 +519,7 @@ The binomial model converges to BSM as the number of steps increases:
 
 ![Binomial Convergence](DRM_Output/4_Binomial_Convergence_Analysis.png)
 
-*Figure 4: Binomial model convergence to BSM analytical solution*
+_Figure 4: Binomial model convergence to BSM analytical solution_
 
 ---
 
@@ -420,18 +531,19 @@ All analysis results have been exported to the `DRM_Output/` directory:
 
 #### CSV Files
 
-| File | Description | Rows |
-|------|-------------|------|
-| `1_Summary.csv` | Key metrics and parameters | 18 |
-| `2_Stock_Data.csv` | Historical prices and returns | 495 |
-| `3_Synthetic_Portfolio.csv` | Daily tracking data | 63 |
-| `4_TaskA_Comparison.csv` | Strategy comparison | 4 |
-| `5_Option_Pricing.csv` | BSM and Binomial prices | 4 |
-| `6_Delta_Analysis.csv` | Delta sensitivity data | 100 |
-| `7_Vega_Analysis.csv` | Vega sensitivity data | 50 |
-| `8_Binomial_Convergence.csv` | Convergence analysis | 10 |
-| `9_Real_Option_Data.csv` | NSE option chain (if available) | Variable |
-| `10_Real_Analysis.csv` | Real vs theoretical comparison | Variable |
+| File                         | Description                        | Rows     |
+| ---------------------------- | ---------------------------------- | -------- |
+| `1_Summary.csv`              | Key metrics and parameters         | 18       |
+| `2_Stock_Data.csv`           | Historical prices and returns      | 495      |
+| `3_Synthetic_Portfolio.csv`  | Daily tracking data                | 63       |
+| `4_TaskA_Comparison.csv`     | Strategy comparison                | 4        |
+| `5_Option_Pricing.csv`       | BSM and Binomial prices            | 4        |
+| `6_Delta_Analysis.csv`       | Delta sensitivity data             | 100      |
+| `7_Vega_Analysis.csv`        | Vega sensitivity data              | 50       |
+| `8_Binomial_Convergence.csv` | Convergence analysis               | 10       |
+| `9_Real_Option_Data.csv`     | NSE option chain (if available)    | Variable |
+| `10_Real_Analysis.csv`       | Real vs theoretical comparison     | Variable |
+| `11_Actual_vs_BSM_Daily.csv` | 3-month actual vs BSM daily prices | 59       |
 
 #### Excel Files
 
@@ -440,14 +552,15 @@ All analysis results have been exported to the `DRM_Output/` directory:
 
 #### Visualization Files
 
-| File | Description |
-|------|-------------|
-| `1_Stock_Price_History.png` | 2-year price chart with volatility |
-| `2_Synthetic_Portfolio_Analysis.png` | Synthetic tracking and delta hedging |
-| `3_BSM_Greeks_Analysis.png` | Greeks sensitivity plots |
-| `4_Binomial_Convergence_Analysis.png` | Convergence to BSM |
-| `5_Real_NSE_Market_Analysis.png` | Real option data analysis |
-| `6_Greeks_Sensitivity_Analysis.png` | Comprehensive Greeks plots |
+| File                                  | Description                                   |
+| ------------------------------------- | --------------------------------------------- |
+| `1_Stock_Price_History.png`           | 2-year price chart with volatility            |
+| `2_Synthetic_Portfolio_Analysis.png`  | Synthetic tracking and delta hedging          |
+| `3_BSM_Greeks_Analysis.png`           | Greeks sensitivity plots                      |
+| `4_Binomial_Convergence_Analysis.png` | Convergence to BSM                            |
+| `5_Real_NSE_Market_Analysis.png`      | Real option data analysis                     |
+| `6_Greeks_Sensitivity_Analysis.png`   | Comprehensive Greeks plots                    |
+| `7_Actual_vs_BSM_Comparison.png`      | 3-month actual NSE vs BSM theoretical prices  |
 
 ---
 
@@ -456,21 +569,33 @@ All analysis results have been exported to the `DRM_Output/` directory:
 ### Key Findings
 
 1. **Volatility Analysis:**
+
    - LT.NS exhibits 25.40% annualized volatility (classified as HIGH)
    - Return distribution shows negative skewness (-1.12) and high kurtosis (11.60)
    - This indicates occasional large negative returns (fat tails)
 
 2. **Synthetic Portfolio (Task A):**
+
    - Successfully replicated call option payoff using stock + put
    - Put-Call Parity validated with negligible error
    - Synthetic strategy outperformed actual call in this period (+8.38% vs -100%)
 
-3. **BSM Model (Task B):**
+3. **Actual NSE vs BSM Comparison (Phase 2C):**
+
+   - Analyzed 59 trading days of real NSE option data (3 months)
+   - BSM systematically overprices options by ~30-38% using historical volatility
+   - PUT options: Actual ₹49.67 vs BSM ₹80.70 (38.5% overpriced)
+   - CALL options: Actual ₹63.81 vs BSM ₹92.61 (31.1% overpriced)
+   - Put-Call Parity holds well in actual market (±₹2.24 deviation)
+   - Implied volatility in market (~16-20%) is lower than historical volatility (25.57%)
+
+4. **BSM Model (Task B):**
+
    - Provided analytical option prices: Call ₹129.13, Put ₹108.84
    - Greeks calculated for comprehensive risk analysis
    - Delta hedging demonstrated risk-neutral portfolio construction
 
-4. **Binomial Model (Task C):**
+5. **Binomial Model (Task C):**
    - Converged to BSM with 99.9%+ accuracy at N=250
    - Demonstrated discrete-time approximation to continuous model
    - Practical for American options and complex payoffs
@@ -478,11 +603,13 @@ All analysis results have been exported to the `DRM_Output/` directory:
 ### Practical Implications
 
 1. **For Traders:**
+
    - Use delta hedging for managing directional risk
    - Monitor vega exposure during high volatility periods
    - Consider synthetic positions when actual options are illiquid
 
 2. **For Risk Managers:**
+
    - LT.NS options require higher margins due to high volatility
    - Greeks provide early warning of portfolio risk changes
    - Put-Call Parity violations may indicate arbitrage opportunities
@@ -495,17 +622,20 @@ All analysis results have been exported to the `DRM_Output/` directory:
 ### Limitations
 
 1. **BSM Assumptions:**
-   - Constant volatility (actual volatility varies)
+
+   - Constant volatility (actual volatility varies; implied vs historical differs by ~10%)
    - No dividends (LT pays dividends)
    - Continuous trading (not realistic)
 
-2. **Data Availability:**
-   - Historical option prices not freely available
-   - Used theoretical prices for synthetic portfolio tracking
+2. **Volatility Mismatch:**
+
+   - Historical volatility (25.57%) used in BSM overestimates option prices
+   - Real market prices reflect implied volatility (~16-20%)
+   - For accurate pricing, calibrate BSM using implied volatility from market prices
 
 3. **Market Frictions:**
    - Transaction costs not considered
-   - Bid-ask spreads ignored
+   - Bid-ask spreads ignored (we used close prices)
    - Liquidity constraints not modeled
 
 ---
@@ -535,50 +665,57 @@ DRM_Output/
 ├── 6_Greeks_Sensitivity_Analysis.png
 ├── 7_Vega_Analysis.csv
 ├── 7_Vega_Analysis.xlsx
+├── 7_Actual_vs_BSM_Comparison.png
 ├── 8_Binomial_Convergence.csv
 ├── 8_Binomial_Convergence.xlsx
 ├── 9_Real_Option_Data.csv
 ├── 10_Real_Analysis.csv
+├── 11_Actual_vs_BSM_Daily.csv
 └── DRM_Results_Consolidated.xlsx
 ```
 
 ### Software & Libraries Used
 
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Python | 3.10+ | Core programming language |
-| yfinance | Latest | Yahoo Finance data API |
-| pandas | 2.0+ | Data manipulation |
-| numpy | 1.24+ | Numerical computing |
-| scipy | 1.10+ | Statistical functions |
-| matplotlib | 3.7+ | Visualization |
-| seaborn | 0.12+ | Statistical plots |
-| openpyxl | 3.1+ | Excel file creation |
+| Library    | Version | Purpose                   |
+| ---------- | ------- | ------------------------- |
+| Python     | 3.10+   | Core programming language |
+| yfinance   | Latest  | Yahoo Finance data API    |
+| pandas     | 2.0+    | Data manipulation         |
+| numpy      | 1.24+   | Numerical computing       |
+| scipy      | 1.10+   | Statistical functions     |
+| matplotlib | 3.7+    | Visualization             |
+| seaborn    | 0.12+   | Statistical plots         |
+| openpyxl   | 3.1+    | Excel file creation       |
 
 ### Formulas Reference
 
 **BSM Call Price:**
+
 ```
 C = S * N(d1) - K * exp(-rT) * N(d2)
 ```
 
 **BSM Put Price:**
+
 ```
 P = K * exp(-rT) * N(-d2) - S * N(-d1)
 ```
 
 **d1 and d2:**
+
 ```
 d1 = [ln(S/K) + (r + σ²/2)T] / (σ√T)
 d2 = d1 - σ√T
 ```
 
 **Put-Call Parity:**
+
 ```
 C + K*exp(-rT) = P + S
 ```
 
 **Binomial Parameters:**
+
 ```
 u = exp(σ√Δt)
 d = 1/u
@@ -593,4 +730,4 @@ p = [exp(rΔt) - d] / (u - d)
 
 ---
 
-*End of Report*
+_End of Report_
