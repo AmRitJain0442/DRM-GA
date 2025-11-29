@@ -1,4 +1,0 @@
-
-Verification: P&L NOT found.
-Verification: Hedged P&L NOT found.
-Verification: Greeks NOT found.
