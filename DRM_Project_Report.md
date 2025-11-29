@@ -315,11 +315,11 @@ _Figure 2: Synthetic call tracking, parity error, and delta hedging P&L_
 
 ---
 
-## Phase 2C: Actual NSE Options vs BSM Theoretical Pricing
+## Phase 2C: Task A Validation with Real NSE Data
 
 ### Objective
 
-Compare **actual NSE option prices** with **BSM theoretical prices** over a 3-month period using real market data from the National Stock Exchange.
+Validate the **Synthetic Long Call** strategy using **actual NSE option prices** and compare with the **Actual Call Option** over a 3-month period.
 
 ### Data Sources
 
@@ -330,88 +330,67 @@ Compare **actual NSE option prices** with **BSM theoretical prices** over a 3-mo
 
 ### Methodology
 
-**Rolling Front-Month ATM Options Strategy:**
-- For each trading date, select the nearest expiry with >5 days remaining
-- Find the ATM strike (closest to current stock price)
-- Compare actual market close prices with BSM theoretical prices
-- Calculate pricing errors and validate Put-Call Parity
+**Task A Implementation with Real Data:**
+- For each trading date, select ATM options with ~1 month expiry (20-45 days)
+- **Synthetic Call** = Stock Price + Actual Put Price (from NSE)
+- **Actual Call** = Actual Call Price (from NSE)
+- Validate Put-Call Parity: S + P = C + PV(K)
 
-### Available Expiry Dates
+### Available Expiry Dates Used
 
-| Expiry Date | Trading Days | Usage in Comparison |
-|-------------|--------------|---------------------|
-| 30-Sep-2025 | 23 days | 20 days |
-| 28-Oct-2025 | 41 days | 18 days |
-| 25-Nov-2025 | 60 days | 15 days |
-| 30-Dec-2025 | 40 days | 6 days |
-| 27-Jan-2026 | 22 days | - |
-| 24-Feb-2026 | 3 days | - |
+| Expiry Date | Trading Days Used |
+|-------------|-------------------|
+| 30-Sep-2025 | 11 days |
+| 28-Oct-2025 | 19 days |
+| 25-Nov-2025 | 17 days |
+| 30-Dec-2025 | 12 days |
 
 **Total Comparison Period:** 59 trading days (August 29 - November 28, 2025)
 
-### Pricing Comparison Results
+### Cost Comparison Results
 
-**Parameters Used:**
-- Risk-Free Rate (r): 6.00%
-- Historical Volatility (σ): 25.57%
+| Strategy | Components | Average Cost (₹) |
+|----------|------------|------------------|
+| **Actual Call** | Buy Call | ₹91.07 |
+| **Synthetic Call** | Buy Stock + Buy Put | ₹3,867.76 |
+| └─ Stock | | ₹3,797.71 |
+| └─ Put | | ₹70.05 |
 
-#### PUT Option Analysis
-
-| Metric | Value |
-|--------|-------|
-| **Average Actual Price** | ₹49.67 |
-| **Average BSM Price** | ₹80.70 |
-| **Average Error** | -₹31.03 (-38.5%) |
-| **Standard Deviation of Error** | ₹9.40 |
-
-#### CALL Option Analysis
-
-| Metric | Value |
-|--------|-------|
-| **Average Actual Price** | ₹63.81 |
-| **Average BSM Price** | ₹92.61 |
-| **Average Error** | -₹28.80 (-31.1%) |
-| **Standard Deviation of Error** | ₹9.43 |
+**Key Insight:** Synthetic Call costs ~42.5x more capital than Actual Call, but by Put-Call Parity, they should have the same payoff at expiry.
 
 ### Put-Call Parity Validation
 
 | Metric | Value |
 |--------|-------|
-| **Average (S+P) - (C+PV(K))** | -₹2.24 |
-| **Standard Deviation** | ₹4.11 |
-| **Status** | ✓ Parity holds well (within ₹20) |
+| **Theory** | C + PV(K) = S + P |
+| **Avg C + PV(K)** | ₹3,869.59 |
+| **Avg S + P** | ₹3,867.76 |
+| **Avg Parity Error** | -₹1.83 |
+| **Std Dev Error** | ₹20.31 |
+| **Status** | ✓ Parity holds well! No significant arbitrage opportunity |
 
 ### Key Findings
 
-1. **BSM Overprices Options:** Both PUT and CALL options are systematically overpriced by BSM (30-38%) compared to actual NSE market prices.
+1. **Put-Call Parity Holds:** The average parity error of -₹1.83 is negligible, confirming market efficiency in NSE options.
 
-2. **Implied vs Historical Volatility:** This discrepancy is primarily due to:
-   - BSM uses **historical volatility** (25.57%)
-   - Market prices reflect **implied volatility** which is typically lower (~15-20% for ATM options)
-   
-3. **Put-Call Parity Holds:** Despite the absolute pricing errors, the relationship between calls and puts (Put-Call Parity) is well-maintained in the market with only ₹2.24 average deviation.
+2. **Same Payoff, Different Capital:** Both strategies have identical payoff at expiry: max(S_T - K, 0), but Synthetic Call requires significantly more capital.
 
-4. **Market Efficiency:** The consistent parity relationship indicates efficient arbitrage activity in the NSE options market.
+3. **Capital Efficiency:** Actual Call is more capital-efficient (₹91 vs ₹3,868), making it preferred for leveraged positions.
 
-### Actual vs BSM Comparison Chart
+4. **Why the Cost Difference?**
+   - Synthetic = S + P = ₹3,867.76
+   - By parity: S + P = C + PV(K)
+   - The difference (~₹3,778) is the Present Value of Strike Price PV(K)
 
-![Actual vs BSM Comparison](DRM_Output/7_Actual_vs_BSM_Comparison.png)
+### Task A Comparison Chart
 
-_Figure 2.5: 3-month comparison of actual NSE option prices vs BSM theoretical prices_
+![Task A: Synthetic vs Actual Call](DRM_Output/7_TaskA_Synthetic_vs_Actual.png)
+
+_Figure 2.5: Task A - Synthetic Call vs Actual Call comparison using real NSE data_
 
 **Chart Components:**
-- **Top Left:** PUT Option - Actual NSE vs BSM Theoretical
-- **Top Right:** CALL Option - Actual NSE vs BSM Theoretical  
-- **Bottom Left:** Put-Call Parity: S + P vs C + PV(K)
-- **Bottom Right:** Pricing Error over time (Actual - BSM)
-
-### Implications
-
-| For | Insight |
-|-----|---------|
-| **Traders** | Use implied volatility from market prices rather than historical volatility for more accurate pricing |
-| **Risk Managers** | BSM with historical vol overestimates option values - adjust margins accordingly |
-| **Academics** | Real markets exhibit volatility smile/skew not captured by constant-volatility BSM |
+- **Left:** Synthetic Call (S + P) vs Actual Call + PV(K) - tracks perfectly (validates parity)
+- **Right:** Parity Error over time - stays near zero (confirms market efficiency)
 
 ---
 
@@ -580,14 +559,14 @@ All analysis results have been exported to the `DRM_Output/` directory:
    - Put-Call Parity validated with negligible error
    - Synthetic strategy outperformed actual call in this period (+8.38% vs -100%)
 
-3. **Actual NSE vs BSM Comparison (Phase 2C):**
+3. **Task A Validation with Real NSE Data (Phase 2C):**
 
-   - Analyzed 59 trading days of real NSE option data (3 months)
-   - BSM systematically overprices options by ~30-38% using historical volatility
-   - PUT options: Actual ₹49.67 vs BSM ₹80.70 (38.5% overpriced)
-   - CALL options: Actual ₹63.81 vs BSM ₹92.61 (31.1% overpriced)
-   - Put-Call Parity holds well in actual market (±₹2.24 deviation)
-   - Implied volatility in market (~16-20%) is lower than historical volatility (25.57%)
+   - Validated synthetic call strategy using 59 trading days of real NSE option data
+   - **Synthetic Call** (Stock + Put): Avg cost ₹3,867.76
+   - **Actual Call**: Avg cost ₹91.07
+   - Put-Call Parity validated: Avg error -₹1.83 (negligible)
+   - Both strategies have identical payoff at expiry: max(S_T - K, 0)
+   - Actual Call is more capital-efficient (42.5x less capital required)
 
 4. **BSM Model (Task B):**
 
@@ -665,12 +644,12 @@ DRM_Output/
 ├── 6_Greeks_Sensitivity_Analysis.png
 ├── 7_Vega_Analysis.csv
 ├── 7_Vega_Analysis.xlsx
-├── 7_Actual_vs_BSM_Comparison.png
+├── 7_TaskA_Synthetic_vs_Actual.png
 ├── 8_Binomial_Convergence.csv
 ├── 8_Binomial_Convergence.xlsx
 ├── 9_Real_Option_Data.csv
 ├── 10_Real_Analysis.csv
-├── 11_Actual_vs_BSM_Daily.csv
+├── 11_TaskA_Synthetic_vs_Actual.csv
 └── DRM_Results_Consolidated.xlsx
 ```
 
